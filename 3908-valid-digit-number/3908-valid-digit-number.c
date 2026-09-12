@@ -1,19 +1,15 @@
 bool validDigit(int n, int x) {
-    int arr[6];
-    int i=0;
     int a = n;
-    int count = 0;
-    while (a){
-        arr[i++]=a%10;
-        a/=10;
-        count++;
+    while (a) {
+        if (a / 10 == 0 && a == x)
+            return false;
+        a /= 10;
     }
-    int check = 0;
-    for (i=0;i<count;i++){
-        if (arr[i]==x){
-            check = 1;
-        }
+    a = n;
+    while (a) {
+        if (a % 10 == x)
+            return true;
+        a /= 10;
     }
-    if (n!=0 && arr[count-1]!=x && check ==1)return true;
     return false;
 }
