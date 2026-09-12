@@ -1,5 +1,5 @@
 bool validDigit(int n, int x) {
-    int arr[100000];
+    int arr[6];
     int i=0;
     int a = n;
     int count = 0;
