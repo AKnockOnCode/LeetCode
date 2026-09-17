@@ -4,8 +4,8 @@ int maxDistinct(char* s) {
         hash[s[i]-'a']++;
     }
     int count = 0;
-    for (int i='a';i<='z';i++){
-        if (hash[i-'a']){
+    for (int i=0;i<26;i++){
+        if (hash[i]){
             count++;
         }
     }
