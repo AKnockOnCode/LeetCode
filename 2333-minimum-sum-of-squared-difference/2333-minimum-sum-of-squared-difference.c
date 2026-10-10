@@ -21,10 +21,11 @@ long long minSumSquareDiff(int* nums1, int nums1Size, int* nums2, int nums2Size,
                 hash[i - 1] += hash[i];
                 k -= hash[i];
                 hash[i] = 0;
+                max--;
             }
         }
     }
-    for (i = 0; i <= max; i++) {
+    for (i = 1; i <= max; i++) {
         sum += hash[i] * i * i;
     }
     return sum;
