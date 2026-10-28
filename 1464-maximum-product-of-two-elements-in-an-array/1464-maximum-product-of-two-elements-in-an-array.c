@@ -1,11 +1,21 @@
 int maxProduct(int* nums, int numsSize) {
-    int max = 0;
-    for (int i = 0; i < numsSize - 1; i++) {
-        for (int j = i + 1; j < numsSize; j++) {
-            if ((nums[i] - 1) * (nums[j] - 1) > max) {
-                max = (nums[i] - 1) * (nums[j] - 1);
-            }
+    int hash[1001] = {0}, min = 1000, max = 0;
+    for (int i = 0; i < numsSize; i++) {
+        hash[nums[i]]++;
+        if (nums[i] < min) {
+            min = nums[i];
+        }
+        if (nums[i] > max) {
+            max = nums[i];
         }
     }
-    return max;
+    int prod = max-1;
+    hash[max]--;
+    for (int i = max; i >= min; i--) {
+        if (hash[i]) {
+            prod *= i-1;
+            break;
+        }
+    }
+    return prod;
 }
