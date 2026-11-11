@@ -1,13 +1,7 @@
 int totalMoney(int n) {
-    int total = 0, start = 1, limit = 7, reset = 2;
-    while (n) {
-        if (start <= limit) {
-            total += start++;
-            n--;
-        } else if (start > limit) {
-            start = reset++;
-            limit++;
-        }
-    }
-    return total;
+    int w = n / 7;
+    int r = n % 7;
+    int weeks = w * 28 + 7 * w * (w - 1) / 2;
+    int days = r * w + r * (r + 1) / 2;
+    return weeks + days;
 }
